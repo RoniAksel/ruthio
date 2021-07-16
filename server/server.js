@@ -15,7 +15,7 @@ app.use(cookieParser())
 app.listen(PORT, () => console.log(`😀 Server Started: ${PORT}`));
 
 app.use(cors({
-    origin: "http://localhost:3000",
+    origin: "http://localhost:3001",
     credentials: true,
 }))
 

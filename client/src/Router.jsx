@@ -11,15 +11,14 @@ export function Router() {
     const { loggedIn } = useContext(AuthContext)
     return (
         <BrowserRouter>
-            <Navbar />
             <Switch>
                 <Route exact path="/">
-                    {loggedIn === true && (
-                        <>
-                            <p></p>
-                        </>
+                    {loggedIn === false && (
+                        <Login/>
                     )}
-                    <div>Home</div>
+                    {loggedIn === true && (
+                        <Navbar />
+                    )}
                 </Route>
                 {loggedIn === false && (
                     <>
@@ -34,6 +33,8 @@ export function Router() {
 
                 {loggedIn === true && (
                     <>
+                    <Navbar />
+
                         <Route path="/project">
                             <Projects />
                         </Route>

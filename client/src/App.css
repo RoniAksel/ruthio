@@ -1,8 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&family=Varela&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
 
 body{
   font-family: 'Roboto', sans-serif;
-  background-color: #F0F2FA;
+  background-color: #F5F8FB;
+  /* background-color: rgba(240, 242, 250, 0.623); */
+
+  margin: 0;
+  padding: 0;
 }
 
 a{
@@ -46,4 +51,29 @@ a{
   to {
     transform: rotate(360deg);
   }
+}
+
+.icons{
+  color: rgb(214, 214, 214);
+  transition: 0.2s ease;
+}
+
+/* unvisited link */
+.icons:link {
+  color: rgb(214, 214, 214);
+}
+
+/* visited link */
+.icons.icons:visited {
+  color: rgb(214, 214, 214);
+}
+
+/* mouse over link */
+.icons:hover {
+  color: rgb(189, 189, 189);
+}
+
+/* selected link */
+.icons:active {
+  color: rgb(214, 214, 214);
 }

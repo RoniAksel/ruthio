@@ -1,6 +1,8 @@
 import styled from "styled-components"
 
-
+export const Logo = styled.img`
+    width: ${props => props.width};
+`
 export const Card = styled.div`
     padding: 1em;
     border-radius: 10px;
@@ -91,9 +93,19 @@ export const Input = styled.input.attrs(props => ({
     width: ${props => props.width};
   `;
 
+export const Flex = styled.div`
+  display:flex;
+  align-items: ${props => props.align};
+  justify-content: ${props => props.justify};
+  background-color: ${props => props.bgColor};
+  flex-direction: ${props => props.direction}
+
+`
+
 export const FlexContainer = styled.div`
     display:flex;
-    justify-content: center; 
+    justify-content: center;
+    margin-top: ${props => props.marginTop}
 `
 
 export const FlexJustify = styled.div`
@@ -103,21 +115,30 @@ align-items: center;
 `
 
 export const Container = styled.div`
-    background-color: white;
-    border-radius: 10px;
+    background-color: ${props => props.bgColor};
+    background-image: ${props => props.bgPic};
+    background-size: ${props => props.bgSize};
+    background-repeat: ${props => props.bgRepeat};
+    background: ${props => props.bgProps};
+    border-radius: ${props => props.bRadius};
+    width: ${props => props.width};
+    display: ${props => props.display};
+    grid-template-columns: ${props => props.gridTemplateColumns};
+    padding: ${props => props.padding};
 `
 
-export const Title = styled.h1({
-    padding: "0.5em",
-    fontFamily: "'Varela', sans-serif"
+export const Title = styled.h1`
+    font-family: ${props => props.fontFamily}
 
-})
+`
+export const Form = styled.form`
+`
 
-export const Form = styled.form({
-    padding: "0.5em",
-    border: "1px solid #f0f0f0",
-    boxShadow: "0px 0px 24px 5px rgba(153,153,153,0.17)"
-});
+// export const Form = styled.form({
+//     padding: "0.5em",
+//     border: "1px solid #f0f0f0",
+//     boxShadow: "0px 0px 24px 5px rgba(153,153,153,0.17)"
+// });
 
 export const InputGrid = styled.div({
     display: "grid",
