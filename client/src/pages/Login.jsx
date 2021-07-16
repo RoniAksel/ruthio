@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react'
 import styled from "styled-components"
 import { Flex, Logo, Input, FlexContainer, Container, Title, Form, InputGrid } from '../components/UserInterface/MainComp'
 import { Button } from '../components/UserInterface/Button'
+import { H4 } from '../components/UserInterface/Headings'
 import axios from "axios"
 import { Link } from 'react-router-dom'
 import { useHistory } from 'react-router';
@@ -34,8 +35,9 @@ export function Login() {
     return (
         <FlexContainer marginTop={"1em"}>
             <Container
-                padding={"1em"}
-                width={"50vw"}
+                padding={"3em"}
+                width={"70vw"}
+                height={"70vh"}
                 display={"grid"}
                 gridTemplateColumns={"1fr 1fr"}
                 bgColor={"white"}
@@ -49,22 +51,24 @@ export function Login() {
                     <p>log in with your data that you entered during your registration</p>
                     <div>
                         <Form onSubmit={login}>
-                            <div>
-                                <label>Enter Email</label>
-                                <Input
-                                    onChange={(e) => setEmail(e.target.value)}
-                                    type="email"
-                                    value={email}
-                                    placeholder="Enter Username"></Input>
-                                <div>
-                                    <label>Enter Password</label>
+                            <Container>
+                                <Container margin={"1.2em 0em"}>
+                                    <H4 fontColor={"#616161"} margin>Enter Email</H4>
+                                    <Input
+                                        onChange={(e) => setEmail(e.target.value)}
+                                        type="email"
+                                        value={email}
+                                        placeholder="Enter Username"></Input>
+                                </Container>
+                                <Container margin={"1.2em 0em"}>
+                                <H4 fontColor={"#616161"} margin>Enter Password</H4>
                                     <Input
                                         type="password"
                                         value={password}
                                         onChange={(e) => setPassword(e.target.value)}
                                         placeholder="Enter Username"></Input>
-                                </div>
-                            </div>
+                                </Container>
+                            </Container>
                             <Button
                                 primary
                                 width={"100%"}
@@ -74,7 +78,9 @@ export function Login() {
                                     width={"100%"}
                                 >Register</Button>
                             </Link>
-
+                            <Flex justify={"center"}>
+                                <a>Forgot Password? </a>
+                            </Flex>
                         </Form>
                     </div>
                 </Container>

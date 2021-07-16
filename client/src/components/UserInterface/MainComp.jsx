@@ -122,9 +122,11 @@ export const Container = styled.div`
     background: ${props => props.bgProps};
     border-radius: ${props => props.bRadius};
     width: ${props => props.width};
+    height: ${props => props.height};
     display: ${props => props.display};
     grid-template-columns: ${props => props.gridTemplateColumns};
     padding: ${props => props.padding};
+    margin: ${props=>props.margin};
 `
 
 export const Title = styled.h1`
