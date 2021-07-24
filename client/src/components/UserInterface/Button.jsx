@@ -19,3 +19,8 @@ export const Button = styled.button`
         boxShadow: "0px 0px 24px 5px rgba(153,153,153,0.17)"
     } 
 `
+
+export const ButtonA = styled.a`
+    border-radius: 5px;
+    
+`

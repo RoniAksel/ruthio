@@ -7,6 +7,8 @@ import { Projects } from './pages/Projects'
 import { Panes, Pane } from './components/Panes'
 import AuthContext from './context/AuthContext'
 import { SideNav } from './components/SideNav'
+import { Home } from './pages/Home'
+import { Tasks } from './pages/Tasks'
 
 
 export function Router() {
@@ -22,7 +24,7 @@ export function Router() {
                         <>
                             <Panes>
                                 <Pane
-                                    body={<SideNav/>}
+                                    body={<SideNav />}
                                     width={'15%'}
                                     minWidth={'300px'}
                                 >
@@ -32,7 +34,7 @@ export function Router() {
                                         <Navbar />
                                     }
                                     body={
-                                        <Projects />
+                                        <Home />
                                     }
                                     width={'85%'}
                                 >
@@ -55,10 +57,49 @@ export function Router() {
 
                 {loggedIn === true && (
                     <>
-                        <Navbar />
-
-                        <Route path="/project">
-                            <Projects />
+                        <Route path="/projects">
+                            <>
+                                <Panes>
+                                    <Pane
+                                        body={<SideNav />}
+                                        width={'15%'}
+                                        minWidth={'300px'}
+                                    >
+                                    </Pane>
+                                    <Pane
+                                        header={
+                                            <Navbar />
+                                        }
+                                        body={
+                                            <Projects />
+                                        }
+                                        width={'85%'}
+                                    >
+                                    </Pane>
+                                </Panes>
+                            </>
+                        </Route>
+                        <Route path="/tasks">
+                            <>
+                                <Panes>
+                                    <Pane
+                                        body={<SideNav />}
+                                        width={'15%'}
+                                        minWidth={'300px'}
+                                    >
+                                    </Pane>
+                                    <Pane
+                                        header={
+                                            <Navbar />
+                                        }
+                                        body={
+                                            <Tasks />
+                                        }
+                                        width={'85%'}
+                                    >
+                                    </Pane>
+                                </Panes>
+                            </>
                         </Route>
                     </>
                 )}

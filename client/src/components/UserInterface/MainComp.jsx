@@ -1,20 +1,30 @@
 import styled from "styled-components"
+import { Colors, BlackColors } from "./Styles"
 
 export const Logo = styled.img`
     width: ${props => props.width};
 `
+export const Divider = styled.hr`
+  border-top: 1px solid ${BlackColors.gray};
+
+`
 export const Card = styled.div`
     padding: 1em;
     border-radius: 10px;
-    background-color: white;
-    border: 1px solid #F0F0F0;
+    background-color:  ${BlackColors.white};
+    border: 1px solid ${BlackColors.divider};
     margin: 1em;
     box-shadow:
     inset 0px 18px 0px -10px ${props => props.shadowColor},
-    inset 0px -11px 8px -10px #fff; 
+    inset 0px -11px 8px -10px #fff,
+    5px 10px 15px 5px rgba(0,0,0,0.02);
     transition: 0.2s ease;
     &:hover{
-        background-color: #F8F8F8;
+        cursor: pointer;
+        box-shadow:
+        inset 0px 18px 0px -10px ${props => props.shadowColor},
+        inset 0px -11px 8px -10px #fff,
+        5px 10px 15px 5px rgba(0,0,0,0.05);
     }
 `
 
@@ -115,6 +125,7 @@ align-items: center;
 `
 
 export const Container = styled.div`
+    position: ${props => props.sticky ? `sticky` : ''};
     background-color: ${props => props.bgColor};
     background-image: ${props => props.bgPic};
     background-size: ${props => props.bgSize};
@@ -128,8 +139,12 @@ export const Container = styled.div`
     padding: ${props => props.padding};
     margin: ${props => props.margin};
     flex-grow: ${props => props.grow};
-    flex-direction: ${props => props.direction}
-    justify-content: ${props => props.justify}
+    flex-direction: ${props => props.direction};
+    justify-content: ${props => props.justify};
+    border: ${props => `1px solid ${props.border}`};
+    border-right: ${props => `1px solid ${props.borderR}`};
+    border-left: ${props => `1px solid ${props.borderR}`};
+    align-items: ${props => props.align};
 `
 
 export const Title = styled.h1`

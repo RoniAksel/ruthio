@@ -17,7 +17,7 @@ import { IoAdd } from "react-icons/io5";
 const animatedComponents = makeAnimated();
 
 
-export function ProjectForm({ getProjects }) {
+export function TaskForm({ getTasks }) {
 
     const [projectName, setProjectName] = useState("");
     const [projectFileNumber, setProjectFileNumber] = useState("");

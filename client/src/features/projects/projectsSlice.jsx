@@ -1,9 +1,9 @@
 import { createSlice, createEntityAdapter } from "@reduxjs/toolkit";
-import { getProjects } from "../../services";
+import { getProjects, postProject } from "../../services";
 
 
 export const projectAdapter = createEntityAdapter();
-export const projectSelectors = projectAdapter.getSelectors((state)=> state.projects)
+export const projectSelectors = projectAdapter.getSelectors((state) => state.projects)
 
 export const initialState = {
     projects: [],
@@ -19,6 +19,9 @@ const projectSlice = createSlice({
             state.projects = action.payload;
         },
         [getProjects.rejected]: (state, action) => {
+            state.projects = action.payload;
+        },
+        [postProject.fulfilled]: (state, action) => {
             state.projects = action.payload;
         }
     }

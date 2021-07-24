@@ -34,11 +34,8 @@ function AuthContextProvider(props) {
       getLoggedIn();
   }, [loggedIn]);
 
-  if (loading) {
-    return (
-      <div>Loading</div>
-    )
-  }
+
+
 
   return (
     <AuthContext.Provider value={{ loggedIn, user, allUsers, getLoggedIn }}>

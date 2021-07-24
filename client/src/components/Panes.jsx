@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import React, { useEffect, useRef } from "react";
+import React  from "react";
 import { Container } from "./UserInterface/MainComp";
 
 export const Panes = styled.main`
@@ -15,7 +15,6 @@ const Header = styled.div(props => ({
 
 
 export const Body = styled.div`
-    ${'' /* width: ${props => props.width}; */}
     flex-grow: 1;
     overflow: auto;
     max-width: 100%;

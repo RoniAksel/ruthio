@@ -6,13 +6,12 @@ import axios from "axios"
 import { Link } from 'react-router-dom'
 import { useHistory } from 'react-router';
 import AuthContext from '../context/AuthContext'
-import RuthLogo from '../img/logo.svg'
 
 
 export function Login() {
+
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-
     const { getLoggedIn } = useContext(AuthContext)
     const history = useHistory()
 
@@ -87,10 +86,7 @@ export function Login() {
                 >
                     <Flex align={"center"} direction={"column"}>
                         <div>
-                            <h2>Welcome</h2>
-                        </div>
-                        <div>
-                            <Logo src={RuthLogo} width={"8em"} alt="Logo"></Logo>
+                            <h2>Welcome to Ruth.io</h2>
                         </div>
                     </Flex>
                 </Container>
