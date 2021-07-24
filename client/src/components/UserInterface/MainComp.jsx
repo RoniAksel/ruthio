@@ -126,13 +126,17 @@ export const Container = styled.div`
     display: ${props => props.display};
     grid-template-columns: ${props => props.gridTemplateColumns};
     padding: ${props => props.padding};
-    margin: ${props=>props.margin};
+    margin: ${props => props.margin};
+    flex-grow: ${props => props.grow};
+    flex-direction: ${props => props.direction}
+    justify-content: ${props => props.justify}
 `
 
 export const Title = styled.h1`
     font-family: ${props => props.fontFamily}
 
 `
+
 export const Form = styled.form`
 `
 

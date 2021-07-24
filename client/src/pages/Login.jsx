@@ -1,6 +1,5 @@
 import React, { useContext, useState } from 'react'
-import styled from "styled-components"
-import { Flex, Logo, Input, FlexContainer, Container, Title, Form, InputGrid } from '../components/UserInterface/MainComp'
+import { Flex, Logo, Input, FlexContainer, Container, Title, Form } from '../components/UserInterface/MainComp'
 import { Button } from '../components/UserInterface/Button'
 import { H4 } from '../components/UserInterface/Headings'
 import axios from "axios"
@@ -61,7 +60,7 @@ export function Login() {
                                         placeholder="Enter Username"></Input>
                                 </Container>
                                 <Container margin={"1.2em 0em"}>
-                                <H4 fontColor={"#616161"} margin>Enter Password</H4>
+                                <H4 fontColor={"#616161"} margin>Enter Email</H4>
                                     <Input
                                         type="password"
                                         value={password}
@@ -95,7 +94,6 @@ export function Login() {
                         </div>
                     </Flex>
                 </Container>
-
             </Container>
         </FlexContainer>
     )

@@ -165,9 +165,5 @@ router.get("/getAllUsers", auth, async (req, res) => {
     }
 })
 
-// module.exports.getAllUsers = (req, res) =>{
-//     User.find().then((result) => res.json(result))
-// };
-
 
 module.exports = router;

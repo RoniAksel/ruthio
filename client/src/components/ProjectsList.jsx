@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Card, Grid, Tag, H4,H2, FlexJustify, AvatarParent, SpanSmall } from "./UserInterface/MainComp";
 import { Tooltip, Avatar } from "@material-ui/core";
 import { AvatarGroup } from "@material-ui/lab";
@@ -7,28 +7,15 @@ import { AvatarGroup } from "@material-ui/lab";
 
 export function ProjectsList({ projects }) {
 
-  const data = [{
-    style: {
-      style1: "1"
-    },
-  },
-  {
-    style: {
-      style1: "2"
-    },
-  },
-  
-  ]
+  // const { projects } = useSelector((state) => state.project);
 
-console.log(data.forEach((one)=> console.log(one.style.style1)))
 
   function renderProjects() {
     return projects.map(project => {
-      return <Card shadowColor={project.shadowColor}>
-        {/* {console.log(project.shadowColor.style.forEach((style)=> console.log(style)))} */}
+      return <Card shadowColor={project.style.shadowColor}>
         <FlexJustify justify={"flex-end"}>
           <div>
-            <span>File Number:</span><Tag fontColor={"#779BFE"} bgColor={"#EEF3FF"}>{project.projectFileNumber}</Tag>
+            <span>File Number:</span><Tag fontColor={project.style.shadowColor} bgColor={project.style.fileTagColor}>{project.projectFileNumber}</Tag>
           </div>
         </FlexJustify>
         <H2 txtAlign={"center"}>{project.projectName}</H2>
