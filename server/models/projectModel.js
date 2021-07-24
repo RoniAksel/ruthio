@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const projectSchema = new mongoose.Schema({
     projectName: { type: String, required: true },
     projectFileNumber: { type: String },
-    date: {type: Date},
+    date: { type: Date },
     author:  {
         type: mongoose.Schema.Types.ObjectId,
         ref: "User",
@@ -14,7 +14,7 @@ const projectSchema = new mongoose.Schema({
     }],
     style: {
         shadowColor: { type: String },
-        fileTagColor: {type: String}
+        logoUrl: { type: String }
     },
     isActive:{type: Boolean, default: true}
 });

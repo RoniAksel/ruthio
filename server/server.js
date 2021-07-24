@@ -15,7 +15,7 @@ app.use(cookieParser())
 app.listen(PORT, () => console.log(`😀 Server Started: ${PORT}`));
 
 app.use(cors({
-    origin: "http://localhost:3001",
+    origin: "http://localhost:3000",
     credentials: true,
 }))
 
@@ -32,6 +32,7 @@ mongoose
 
 app.use("/auth", require("./routers/userRouter"))
 app.use("/projects", require("./routers/projectRouter"))
+app.use("/tasks", require("./routers/tasksRouter"))
 
 
 

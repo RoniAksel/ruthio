@@ -4,8 +4,6 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const auth = require('../middleware/auth')
 
-
-
 // Register
 router.post("/", async (req, res) => {
     try {
@@ -119,6 +117,8 @@ router.post("/login", async (req, res) => {
     }
 });
 
+// logout
+
 router.get("/logout", (req, res) => {
     res.cookie("token", "", {
         httpOnly: true,
@@ -131,6 +131,7 @@ router.get("/logout", (req, res) => {
 
 })
 
+// login 
 
 router.get("/logged", (req, res) => {
     try {
@@ -145,6 +146,7 @@ router.get("/logged", (req, res) => {
     }
   });
   
+//   Get the logged in user data
 
 router.get("/getUserData", auth, async (req, res) => {
     try {
@@ -155,6 +157,8 @@ router.get("/getUserData", auth, async (req, res) => {
         res.status(500).send();
     }
 });
+
+// Get all users from the server
 
 router.get("/getAllUsers", auth, async (req, res) => {
     try {
