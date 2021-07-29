@@ -1,9 +1,6 @@
-import { createSlice, createEntityAdapter } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import { getProjects, postProject } from "../../services";
 
-
-export const projectAdapter = createEntityAdapter();
-export const projectSelectors = projectAdapter.getSelectors((state) => state.projects)
 
 export const initialState = {
     projects: [],

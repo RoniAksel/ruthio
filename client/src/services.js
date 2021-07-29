@@ -29,7 +29,7 @@ export const postProject = createAsyncThunk(
 // Tasks Services
 
 export const getTasks = createAsyncThunk(
-  "projects/getProjects",
+  "projects/getTasks",
   async () => await await (await axios.get(`${BASE_URL}/tasks`)).data
 );
 

@@ -1,15 +1,28 @@
 import axios from 'axios';
 import { Card, Container, Divider } from '../components/UserInterface/MainComp';
 import { BlackColors, Colors } from '../components/UserInterface/Styles';
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { H1, H4, H2 } from '../components/UserInterface/Headings';
 import { GrProjects, GrTask } from "react-icons/gr";
 import { IconContext } from 'react-icons/lib';
+import { useEffect } from 'react';
+import { getProjects, getTasks } from "../services";
 
 export function Home() {
+    const dispatch = useDispatch();
+
     const { projects } = useSelector((state) => state.projects);
     const { user } = useSelector((state) => state.user);
     const { tasks } = useSelector((state) => state.tasks);
+
+    useEffect(() => {
+        dispatch(getProjects())
+    }, []);
+    
+    useEffect(() => {
+        dispatch(getTasks())
+    },[]);
+
 
     console.log(user)
     console.log(projects)
