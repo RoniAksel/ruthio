@@ -23,12 +23,6 @@ export function Home() {
         dispatch(getTasks())
     },[]);
 
-
-    console.log(user)
-    console.log(projects)
-    console.log(tasks)
-
-
     return (
         <Container padding={"1em"}>
             <H1 bold>Welcome {user.firstName}</H1>

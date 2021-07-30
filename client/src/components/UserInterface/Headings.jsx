@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from "styled-components/macro"
 import {FontSizes} from './Styles'
 
 export const H1 = styled.h1`

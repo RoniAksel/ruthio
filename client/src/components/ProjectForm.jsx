@@ -28,7 +28,6 @@ export function ProjectForm({ getProjects }) {
     const [logoUrl, setLogoUrl] = useState("")
     const [open, setOpen] = useState(false);
 
-
     const dispatch = useDispatch();
     const { users } = useSelector((state) => state.users);
     const { user } = useSelector((state) => state.user);

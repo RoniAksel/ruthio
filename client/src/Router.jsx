@@ -9,6 +9,7 @@ import AuthContext from './context/AuthContext'
 import { SideNav } from './components/SideNav'
 import { Home } from './pages/Home'
 import { Tasks } from './pages/Tasks'
+import { Project } from './pages/Project'
 
 
 export function Router() {
@@ -16,34 +17,48 @@ export function Router() {
     return (
         <BrowserRouter>
             <Switch>
-                <Route exact path="/">
-                    {loggedIn === false && (
+                {loggedIn === false && (
+                    <Route exact path="/">
                         <Login />
-                    )}
-                    {loggedIn === true && (
-                        <>
-                            <Panes>
-                                <Pane
-                                    body={<SideNav />}
-                                    width={'15%'}
-                                    minWidth={'300px'}
-                                >
-                                </Pane>
-                                <Pane
-                                    header={
-                                        <Navbar />
-                                    }
-                                    body={
-                                        <Home />
-                                    }
-                                    width={'85%'}
-                                >
-                                </Pane>
-                            </Panes>
-                        </>
+                    </Route>
 
-                    )}
-                </Route>
+                )}
+                {loggedIn === true && (
+                    <>
+                        <Panes>
+                            <Pane
+                                body={<SideNav />}
+                                width={'15%'}
+                                minWidth={'300px'}
+                            >
+                            </Pane>
+                            <Pane
+                                header={
+                                    <Navbar />
+                                }
+                                body={
+                                    <>
+                                        <Route exact path="/">
+                                            <Home />
+                                        </Route>
+                                        <Route path="/projects">
+                                            <Projects />
+                                        </Route>
+                                        <Route path="/tasks">
+                                            <Tasks />
+                                        </Route>
+                                        <Route path="/project">
+                                            <Project />
+                                        </Route>
+                                    </>
+                                }
+                                width={'85%'}
+                            >
+                            </Pane>
+                        </Panes>
+                    </>
+
+                )}
                 {loggedIn === false && (
                     <>
                         <Route path="/register">
@@ -55,7 +70,7 @@ export function Router() {
                     </>
                 )}
 
-                {loggedIn === true && (
+                {/* {loggedIn === true && (
                     <>
                         <Route path="/projects">
                             <>
@@ -102,7 +117,7 @@ export function Router() {
                             </>
                         </Route>
                     </>
-                )}
+                )} */}
             </Switch>
         </BrowserRouter>
     );

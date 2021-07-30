@@ -14,18 +14,13 @@ const Header = styled.div(props => ({
 }))
 
 
-export const Body = styled.div`
-    flex-grow: 1;
-    overflow: auto;
-    max-width: 100%;
-`
+let Body = styled.div({
+    overflow: 'auto',
+    flexGrow: "1"
+  });
 
 export function Pane({ body, width, header }) {
-    //  let ref = useRef(null)
-    //  useEffect(()=>{
-    //     ref.current.scrollTo(0, ref.current.scrollHeight)
-    //   }, [lastScroll])
-    return <Container width={width}>
+    return <Container width={width} display={"flex"} style={{flexDirection:"column"}}>
         <Header>{header}</Header>
         <Body>
             {body}

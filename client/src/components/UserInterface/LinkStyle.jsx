@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import styled from "styled-components"
+import styled from "styled-components/macro"
 import { Colors, BlackColors } from './Styles'
 import { FaSignOutAlt } from "react-icons/fa";
 import { AiOutlineClose } from "react-icons/ai";
@@ -26,7 +26,7 @@ export const StyledLinkNav = styled(Link)`
 export const StyledLogOut = styled(FaSignOutAlt)`
     color: ${BlackColors.lighter};
     transition: 0.2s ease;
-    margin: 1em;
+    margin: 0.25rem;
     font-size: 1.25em;
     &:hover{
         color: ${Colors.redPrimary};

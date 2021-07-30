@@ -9,6 +9,7 @@ import { Colors } from '../components/UserInterface/Styles';
 import { useSelector, useDispatch } from "react-redux";
 import { H1, H4 } from '../components/UserInterface/Headings';
 import {AiOutlineInfoCircle} from 'react-icons/ai'
+import { Link } from 'react-router-dom';
 
 export function Projects() {
   const dispatch = useDispatch();
@@ -22,6 +23,7 @@ export function Projects() {
 
   return (
     <Container margin={"1rem"}>
+
       <H1 bold>All Projects</H1>
       {projects.length < 0 ?
         <Container style={{marginTop:"1rem"} } bgColor={Colors.lightest} padding={"1rem"} bRadius={"10px"} border={Colors.light}>

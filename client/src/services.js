@@ -33,4 +33,10 @@ export const getTasks = createAsyncThunk(
   async () => await await (await axios.get(`${BASE_URL}/tasks`)).data
 );
 
+export const getProjectTasks = createAsyncThunk(
+  "projects/getProjectTasks",
+  async (projectId) => await await (await axios.get(`${BASE_URL}/tasks/${projectId}`)).data
+);
+
+
 

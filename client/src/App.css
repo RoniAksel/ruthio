@@ -1,11 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&family=Varela&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
 
+html{
+  margin: 0;
+  padding: 0;
+}
+
+#root{
+  margin: 0;
+  padding: 0;
+}
+
 body{
   font-family: 'Roboto', sans-serif;
   background-color: #F5F8FB;
-  /* background-color: rgba(240, 242, 250, 0.623); */
-
   margin: 0;
   padding: 0;
 }
@@ -29,29 +37,6 @@ a{
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
 
 .icons{
   color: rgb(214, 214, 214);

@@ -14,7 +14,13 @@ export function Navbar() {
   const { user } = useSelector((state) => state.user);
 
   return (
-    <Flex align={"center"} justify={'space-between'} bgColor={"white"} style={{ borderBottom: `1px solid ${BlackColors.lighter}`}}>
+    <Flex
+      align={"center"}
+      justify={'space-between'}
+      bgColor={"white"}
+      style={{ borderBottom: `1px solid ${BlackColors.lighter}`, top:"0", position:"sticky" }}
+    
+    >
       {loggedIn === false && (
         <>
           <Link to="/register">Register</Link>
@@ -29,11 +35,11 @@ export function Navbar() {
           </Container>
           }
           <Flex>
+            <LogOutBtn />
             {user &&
               <Container display={'flex'} align={'center'}>
               <Avatar alt={user.firstName} src={user.picUrl}></Avatar>
               </Container>}
-              <LogOutBtn />
           </Flex>
         </>
       )}

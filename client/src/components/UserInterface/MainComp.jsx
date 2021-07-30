@@ -1,8 +1,9 @@
-import styled from "styled-components"
+import styled from "styled-components/macro"
 import { Colors, BlackColors } from "./Styles"
 
 export const Logo = styled.img`
     width: ${props => props.width};
+    height: ${props => props.height};
 `
 export const Divider = styled.hr`
   border-top: 1px solid ${BlackColors.gray};

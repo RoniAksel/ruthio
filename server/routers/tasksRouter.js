@@ -36,27 +36,15 @@ router.get("/", auth, async (req, res) => {
     }
 });
 
-router.get("/another", auth, async (req, res) => {
+router.get("/:id", auth, async (req, res) => {
     try {
-        const tasks = await Task.find({ userIds: req.user }).populate("project");
+        const tasks = await Task.find({ project: req.params.id }).populate("userIds author project", "projectFileNumber projectName firstName lastName email picUrl");
         res.json(tasks)
     } catch (err) {
         console.error(err)
         res.status(500).send();
     }
 });
-
-// get all connected tasks
-
-// router.get("/:id", auth, async (req, res) => {
-//     try {
-//         const tasks = await Task.findById(req.params.id).populate("userIds", "firstName lastName email picUrl");
-//         res.json(tasks)
-//     } catch (err) {
-//         console.error(err)
-//         res.status(500).send();
-//     }
-// });
 
 
 
