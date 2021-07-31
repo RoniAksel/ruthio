@@ -10,7 +10,7 @@ const taskScehma = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "Project",
   },
-  date: { type: Date },
+  untilDate: { type: Date },
   author: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
@@ -20,8 +20,13 @@ const taskScehma = new mongoose.Schema({
     ref: "User"
   }],
   isActive: { type: Boolean, default: true },
-  text: { type: String }
-});
+  priority:{type:String},
+  text: { type: String },
+},
+  {
+    timestamps: true,
+  }
+);
 
 let Task = mongoose.model("task", taskScehma);
 

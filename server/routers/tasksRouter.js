@@ -9,9 +9,9 @@ const auth = require('../middleware/auth')
 
 router.post("/", auth, async (req, res) => {
     try {
-        const { taskTitle, projectFileNumber, project, userIds, author, text } = req.body;
+        const { taskTitle, projectFileNumber, project, userIds, author, text, untilDate, priority } = req.body;
         const newTask = new Task({
-            taskTitle,project, projectFileNumber, userIds, text, author
+            taskTitle,project, projectFileNumber, userIds, text, author, untilDate, priority
         });
 
         savedTasks = await newTask.save();

@@ -6,7 +6,8 @@ export const Logo = styled.img`
     height: ${props => props.height};
 `
 export const Divider = styled.hr`
-  border-top: 1px solid ${BlackColors.gray};
+  border:0;
+  border-top: 1px solid ${BlackColors.divider};
 
 `
 export const Card = styled.div`
@@ -156,11 +157,6 @@ export const Title = styled.h1`
 export const Form = styled.form`
 `
 
-// export const Form = styled.form({
-//     padding: "0.5em",
-//     border: "1px solid #f0f0f0",
-//     boxShadow: "0px 0px 24px 5px rgba(153,153,153,0.17)"
-// });
 
 export const InputGrid = styled.div({
     display: "grid",
@@ -197,24 +193,6 @@ export const AvatarParent = styled.div`
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
-`;
-
-export const Avatar = styled.div`
-  width: 32px;
-  height: 32px;
-  background-color: rgb(243, 243, 243);
-  border: 1px solid rgb(214, 214, 214);
-  color: black;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  background: ${(props) => `url(${props.background}) no-repeat top center`}
-    rgb(243, 243, 243);
-
-  &:not(last-child) {
-    margin-left: -3px;
-  }
 `;
 
 export const SpanSmall = styled.span`

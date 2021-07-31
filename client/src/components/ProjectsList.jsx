@@ -10,6 +10,7 @@ import { Divider } from "./UserInterface/MainComp";
 import { setProjectIds, setProjectTitle } from "../features/projects/selectedProjectSlice"
 import { getProjectTasks } from "../services";
 import { Link } from "react-router-dom";
+import ProgressBar from "@ramonak/react-progress-bar";
 
 
 export function ProjectsList({ projects }) {
@@ -35,21 +36,24 @@ export function ProjectsList({ projects }) {
         <Link
           to="/project">
           <Container
-            display={"flex"} justify={"space-between"}>
-            <Container>
-              {project.isActive ? <Tag fontColor={BlackColors.white} bgColor={Colors.greenPrimary}>Active</Tag> : <Tag>Not Active</Tag>}
-            </Container>
-            <div>
+            display={"flex"} justify={"flex-end"}>
+            <Tooltip title={"File Number"}>
               <Tag fontColor={Colors.primary} bgColor={Colors.lightest}>{project.projectFileNumber}</Tag>
-            </div>
+            </Tooltip>
           </Container>
           <Container
             display={"flex"}
-            direction={"column"}
+            justify={"center"}
             align={"center"}
             style={{ flexGrow: '1' }}>
-            {project.style.logoUrl && <Logo width={"8rem"} height={"8rem"} src={project.style.logoUrl} alt="logo"></Logo>}
-            <H2 txtAlign={"center"}>{project.projectName}</H2>
+            <Container display={"flex"} align={"center"} justify={"center"} bRadius={"5px"} width={"2.5em"} height={"2.5em"} border={BlackColors.divider} >
+              {project.style.logoUrl ? <Logo src={project.style.logoUrl} width={"3rem"}></Logo> : <H2>{project.projectName.slice(0, 1).toUpperCase()}</H2>}
+            </Container>
+            {/* {project.style.logoUrl && <Logo width={"8rem"} src={project.style.logoUrl} alt="logo"></Logo>} */}
+            <H2 style={{ marginLeft: "1rem" }}>{project.projectName}</H2>
+          </Container>
+          <Container style={{ marginBottom: "1em" }}>
+            <ProgressBar labelSize={"0.65rem"} height={"10px"} bgColor={Colors.greenPrimary} completed={60} />
           </Container>
           <AvatarParent>
             <AvatarGroup max={3}>
@@ -88,12 +92,13 @@ export function ProjectsList({ projects }) {
           </div>
         </Container>
         <Container
-          onClick={() => setProjectId(project._id)}
-          display={"flex"}
-          direction={"column"}
-          align={"center"}
-          style={{ flexGrow: '1' }}>
-          {project.style.logoUrl && <Logo width={"8rem"} height={"8rem"} src={project.style.logoUrl} alt="logo"></Logo>}
+            display={"flex"}
+            justify={"center"}
+            align={"center"}
+            style={{ flexGrow: '1' }}>
+            <Container display={"flex"} align={"center"} justify={"center"} bRadius={"5px"} width={"2.5em"} height={"2.5em"} border={BlackColors.divider} >
+              {project.style.logoUrl ? <Logo src={project.style.logoUrl} width={"3rem"}></Logo> : <H2>{project.projectName.slice(0, 1).toUpperCase()}</H2>}
+            </Container>
           <H2 txtAlign={"center"}>{project.projectName}</H2>
         </Container>
         <AvatarParent>

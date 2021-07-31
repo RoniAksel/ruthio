@@ -18,7 +18,7 @@ export function Navbar() {
       align={"center"}
       justify={'space-between'}
       bgColor={"white"}
-      style={{ borderBottom: `1px solid ${BlackColors.lighter}`, top:"0", position:"sticky" }}
+      style={{ borderBottom: `1px solid ${BlackColors.lighter}`, top:"0", position:"sticky", padding:"0.65rem" }}
     
     >
       {loggedIn === false && (

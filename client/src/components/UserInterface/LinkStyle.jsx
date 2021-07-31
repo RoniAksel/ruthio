@@ -35,7 +35,7 @@ export const StyledLogOut = styled(FaSignOutAlt)`
 `
 
 export const StyledExit = styled(AiOutlineClose)`
-    color: ${BlackColors.lighter};
+    color: ${BlackColors.light};
     transition: 0.2s ease;
     font-size: 1.25em;
     &:hover{
