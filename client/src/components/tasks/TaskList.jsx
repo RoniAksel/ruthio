@@ -13,6 +13,7 @@ import { Modal } from '@material-ui/core';
 import { TaskFull } from './TaskFull';
 import { TaskDetails } from './TaskDetails';
 import { TaskTitleHeader } from './TaskTitleHeader';
+import { TaskStatusHeader } from './TaskStatusHeader';
 
 
 
@@ -156,7 +157,7 @@ export function TaskList({ tasks }) {
                     display={"flex"}
                     align={"center"}
                 >
-                    <H2>Somthing Goes Here</H2>
+                    <TaskStatusHeader task={task}/>
                 </Container>
                 <Container style={{ gridRowStart: "2" }}>
                 {renderActiveTasks()}
