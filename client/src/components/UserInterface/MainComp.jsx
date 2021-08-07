@@ -138,6 +138,7 @@ export const Container = styled.div`
     height: ${props => props.height};
     display: ${props => props.display};
     grid-template-columns: ${props => props.gridTemplateColumns};
+    grid-template-rows: ${props => props.gridTemplateRows};
     padding: ${props => props.padding};
     margin: ${props => props.margin};
     flex-grow: ${props => props.grow};
@@ -147,6 +148,9 @@ export const Container = styled.div`
     border-right: ${props => `1px solid ${props.borderR}`};
     border-left: ${props => `1px solid ${props.borderR}`};
     align-items: ${props => props.align};
+    &:hover{
+        background-color: ${props => props.bgHover};
+    }
 `
 
 export const Title = styled.h1`

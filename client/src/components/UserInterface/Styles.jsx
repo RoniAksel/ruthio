@@ -11,6 +11,9 @@ export const Colors = {
     greenPrimary: "#16D090",
     greenDark: "#03B575",
     greenLight: "#34EEAE",
+    yellowPrimary: "#FFB648",
+    yellowDark: "#EFAD0A",
+    yellowLight: "#FCDF98",
 
 
 
@@ -23,6 +26,7 @@ export const BlackColors = {
     light: "#CACCCF",
     lighter: "#DBDDE0",
     divider: "#E8E8E8",
+    hover: "#f8f8f8",
     white: "white"
 }
 
