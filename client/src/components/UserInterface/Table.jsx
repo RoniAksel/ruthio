@@ -5,7 +5,9 @@ export const Table = styled.table`
     width:100%;
     text-align: left;
     border-collapse: collapse;
-    border: 1px solid #ddd;
+    border: 1px solid ${BlackColors.divider};
+    ${'' /* border-radius: 10px; */}
+    overflow: hidden;
 
 
 `
@@ -13,8 +15,10 @@ export const Table = styled.table`
 export const TH = styled.th`
     padding: 0.5rem;
     color: ${BlackColors.primary};
-    background-color: #f1f1f1;
+    background-color: #fcfcfc;
     text-align: left;
+    border-radius: 10px;
+
     border: 1px solid #ddd;
 
 `

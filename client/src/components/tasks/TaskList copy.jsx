@@ -52,68 +52,7 @@ export function TaskList({ tasks }) {
             {active.map((task) => {
                 return (
                     <>
-                        <Container onClick={(e) => {
-                            setTask({
-                                title: task.taskTitle,
-                                priority: task.priority,
-                                author: task.author,
-                                members: task.userIds,
-                                text: task.text,
-                                createdAt: timeStamp(task.createdAt)
-                            })
-                            handleOpen()
-                        }
-                        }
-                            bgColor={"white"}
-                            style={{ borderBottom: "1px solid #DDD" }}
-                            padding={"1rem"}
-                        >
-                            <Container display={"grid"} gridTemplateColumns={"0.2fr 1.5fr"}>
-                                <Container>
-                                {task.priority === "Low" &&
-                                        <Container
-                                        bRadius={"50%"}
-                                        width={"20px"}
-                                        height={"20px"}
-                                        fontColor={BlackColors.white}
-                                        bgColor={Colors.greenPrimary}
-                                    >
-                                    </Container>
-                                }
-                                {task.priority === "Medium" &&
-                                <Container
-                                        bRadius={"50%"}
-                                        width={"20px"}
-                                        height={"20px"}
-                                        fontColor={BlackColors.white}
-                                        bgColor={Colors.primary}
-                                    >
-                                    </Container>
-                                }
-                                {task.priority === "High" &&
-                                <Container
-                                        bRadius={"50%"}
-                                        width={"20px"}
-                                        height={"20px"}
-                                        fontColor={BlackColors.white}
-                                        bgColor={Colors.redPrimary}
-                                    >
-                                    </Container>
-                                }
-                                </Container>
-                                <Container>
-                                <Container display={"flex"} justify={"space-between"}>
-                                <H4 bold>{task.taskTitle}</H4>
-                                <H4 fontColor={BlackColors.gray}> {timeStamp(task.createdAt)}</H4>
-                            </Container>
-                            <Container>
-                                <H4 fontColor={BlackColors.light}>By:  {task.author.firstName} {task.author.lastName}</H4>
-                            </Container>
-                                    </Container>
-                            </Container>
-
-                        </Container>
-                        {/* <TR onClick={(e) => {
+                        <TR onClick={(e) => {
                             setTask({
                                 title: task.taskTitle,
                                 priority: task.priority,
@@ -174,7 +113,7 @@ export function TaskList({ tasks }) {
                                 </AvatarParent>
                             </TD>
 
-                        </TR> */}
+                        </TR>
                     </>
                 )
             })}
@@ -227,9 +166,18 @@ export function TaskList({ tasks }) {
             <Container>
                 {tasks.length > 0 &&
                     <>
-                    <Container border={BlackColors.divider} display={"grid"} gridTemplateColumns={"0.8fr 1.3fr 1fr"}>
+                    <Container style={{gridGap:"1rem"}} display={"grid"} gridTemplateColumns={"1fr 1.3fr"}>
                         <Container>
-                        {renderActiveTasks()}
+                        <Table>
+                                <tr>
+                                    <TH>Task Title</TH>
+                                    <TH>Author</TH>
+                                    <TH>Added At</TH>
+                                    <TH>Priority</TH>
+                                    <TH>Task Members</TH>
+                                </tr>
+                                {renderActiveTasks()}
+                            </Table>
                         </Container>    
                             <Container >
                                 <TaskModal task={task} />

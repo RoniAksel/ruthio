@@ -7,10 +7,11 @@ export const Colors = {
     redPrimary: "#FF6760",
     redDark: "#E74F48",
     redLight: "#FF7E77",
+    redLightest: "#ffbfbc",
     greenPrimary: "#16D090",
     greenDark: "#03B575",
     greenLight: "#34EEAE",
-    
+
 
 
 }

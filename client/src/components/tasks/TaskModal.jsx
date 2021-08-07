@@ -16,7 +16,7 @@ export function TaskModal({ task, close }) {
     return (
         <>
             {task && 
-                <Container bRadius={"10px" } bgColor={BlackColors.white} padding={"1em"} style={{overflow:"hidden", height:"80vh"}}>
+                <Container  bgColor={BlackColors.white} padding={"1em"} style={{overflow:"hidden", height:"80vh"}}>
                     <Container>
                         <H2 margin bold>{task.title}</H2>
                         <H4 margin fontColor={BlackColors.gray}>

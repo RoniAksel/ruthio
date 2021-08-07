@@ -16,7 +16,8 @@ const customStyles = {
     control: () => ({
         width: "100%",
         display: "flex",
-    })
+    }),
+    menu: provided => ({ ...provided, zIndex: 9999 })
 }
 
 export function Project() {
@@ -34,7 +35,8 @@ export function Project() {
                                 Show:
                             </H4>
                             <Container width={"20%"}>
-                                <Select
+                            <Select
+                                style={{zIndex:"999"}}
                                     styles={customStyles}
                                     options={options} />
                             </Container>
