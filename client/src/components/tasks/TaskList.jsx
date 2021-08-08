@@ -22,18 +22,19 @@ export function TaskList({ tasks }) {
     const [task, setTask] = useState(null);
     const [open, setOpen] = useState(false);
     const [show, setShow] = useState(false);
-
+    const [searchInput, setSearchInput] = useState("");
 
     useEffect(() => {
         if (tasks.length > 0) {
             return (
                 setTask({
-                    title: tasks[0].taskTitle,
-                    priority: tasks[0].priority,
-                    author: tasks[0].author,
-                    members: tasks[0].userIds,
-                    text: tasks[0].text,
-                    createdAt: timeStamp(tasks[0].createdAt)
+                    title: tasks.slice(-1)[0].taskTitle,
+                    priority: tasks.slice(-1)[0].priority,
+                    author: tasks.slice(-1)[0].author,
+                    members: tasks.slice(-1)[0].userIds,
+                    text: tasks.slice(-1)[0].text,
+                    createdAt: timeStamp(tasks.slice(-1)[0].createdAt),
+                    active: tasks.slice(-1)[0].isActive
                 })
             )
 
@@ -53,11 +54,24 @@ export function TaskList({ tasks }) {
         return new Date(dateString).toLocaleDateString(undefined, options)
     }
 
-    function renderActiveTasks() {
-        const active = tasks.filter((task) => task.isActive);
+    function renderActiveTasks(searchInput) {
+        let lowerCase = searchInput.toLowerCase();
+        
+        const active = tasks.filter((task) =>
+            task.taskTitle.toLowerCase().includes(lowerCase)
+            || task.priority.toLowerCase().includes(lowerCase)
+            || task.text.toLowerCase().includes(lowerCase)
+            || task.author.firstName.toLowerCase().includes(lowerCase)
+            || task.author.lastName.toLowerCase().includes(lowerCase)
+        );
+
+        const sorted = active.sort((a,b) =>  new Date(b.createdAt) - new Date(a.createdAt))
+        console.log(sorted)
+
+
 
         return <>
-            {active.map((task) => {
+            {sorted.map((task) => {
                 return (
                     <>
                         <Container
@@ -72,7 +86,9 @@ export function TaskList({ tasks }) {
                                 author: task.author,
                                 members: task.userIds,
                                 text: task.text,
-                                createdAt: timeStamp(task.createdAt)
+                                createdAt: timeStamp(task.createdAt),
+                                active: task.isActive
+
                             })
                             handleOpen()
                         }
@@ -137,13 +153,19 @@ export function TaskList({ tasks }) {
 
     function renderTasks() {
         return (
-            <Container border={BlackColors.divider} display={"grid"} gridTemplateColumns={"0.8fr 1.3fr 1fr"} gridTemplateRows={"0.1fr 1fr"} bgColor={BlackColors.white}>
+            <Container border={BlackColors.divider} display={"grid"} gridTemplateColumns={"0.8fr 1.6fr 0.8fr "} gridTemplateRows={"0.1fr 1fr"} bgColor={BlackColors.white} height={"100vh"}>
                 <Container
                     style={{ gridRowStart: "1", borderBottom: `1px solid ${BlackColors.divider}` }}
                     display={"flex"}
                     justify={"center"} 
                     align={"center"}>
-                    <Input width={"80%"} placeholder={`Search Tasks`}></Input>
+                    <Input
+                        width={"80%"}
+                        placeholder={`Search Tasks`}
+                        onChange={(e)=> setSearchInput(e.target.value)}
+                        value={searchInput}
+                    >
+                        </Input>
                 </Container>
                 <Container
                     style={{ gridRowStart: "1",borderBottom: `1px solid ${BlackColors.divider}`, borderLeft: `1px solid ${BlackColors.divider}`,   borderRight: `1px solid ${BlackColors.divider}` }}
@@ -159,13 +181,13 @@ export function TaskList({ tasks }) {
                 >
                     <TaskStatusHeader task={task}/>
                 </Container>
-                <Container style={{ gridRowStart: "2" }}>
-                {renderActiveTasks()}
+                <Container style={{ gridRowStart: "2", overflowY:"scroll", borderRight: `1px solid ${BlackColors.divider}`} }>
+                {renderActiveTasks(searchInput)}
                 </Container>
                 <Container style={{ gridRowStart: "2" }}>
                     <TaskFull task={task} />
                 </Container>
-                <Container style={{ gridRowStart: "2" }} style={{paddingTop:"0.5rem"}}>
+                <Container style={{ gridRowStart: "2", borderLeft: `1px solid ${BlackColors.divider}`, paddingTop:"0.5rem" }}>
                     <TaskDetails task={task} />
                 </Container>
             </Container>

@@ -9,6 +9,7 @@ import { FaEllipsisV } from 'react-icons/fa';
 
 
 export function TaskDetails({ task }) {
+    console.log(new Date())
     return (
         <>
             {task &&

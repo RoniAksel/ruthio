@@ -12,7 +12,6 @@ import { FaRegComments } from "react-icons/fa";
 
 
 export function TaskFull({ task, close }) {
-    console.log(task)
     return (
         <>
             {task &&
